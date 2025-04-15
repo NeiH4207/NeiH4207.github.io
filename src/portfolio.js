@@ -400,12 +400,7 @@ const achievementSection = {
         "National Programming Contest organized by Vietnam Association for Information Processing.",
       image: require("./assets/images/olpvn_logo.png"), // <<< UPDATE IMAGE PATH
       imageAlt: "Procon Logo",
-      footerLink: [
-        {
-          name: "Award PDF (Example)",
-          url: "https://www.naprock.jp/wp-content/uploads/2020/07/NAPROCK202003BoA.pdf"
-        } // Using 2020 link as example
-      ]
+      footerLink: []
     },
     {
       title: "Second Prize, Procon (Kyogi) 2020",
@@ -413,12 +408,7 @@ const achievementSection = {
         "National Programming Contest organized by Vietnam Association for Information Processing.",
       image: require("./assets/images/olpvn_logo.png"), // <<< UPDATE IMAGE PATH
       imageAlt: "Procon Logo",
-      footerLink: [
-        {
-          name: "Award PDF",
-          url: "https://www.naprock.jp/wp-content/uploads/2020/07/NAPROCK202003BoA.pdf"
-        }
-      ]
+      footerLink: []
     }
   ],
   publicationsCards: [
