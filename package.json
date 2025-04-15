@@ -1,33 +1,58 @@
 {
-  "name": "minimal-mistakes",
-  "version": "3.4.2",
-  "description": "Minimal Mistakes Jekyll theme npm build scripts",
-  "repository": {
-    "type": "git",
-    "url": "git://github.com/mmistakes/minimal-mistakes.git"
-  },
-  "keywords": [
-    "jekyll",
-    "theme",
-    "minimal"
-  ],
-  "author": "Michael Rose",
-  "license": "MIT",
-  "bugs": {
-    "url": "https://github.com/mmistakes/minimal-mistakes/issues"
-  },
-  "homepage": "https://mmistakes.github.io/minimal-mistakes/",
-  "engines": {
-    "node": ">= 0.10.0"
-  },
-  "devDependencies": {
-    "npm-run-all": "^1.7.0",
-    "onchange": "^2.2.0",
-    "uglify-js": "^2.6.1"
+  "homepage": "https://Neih4207.github.io",
+  "name": "developerfolio",
+  "version": "0.1.0",
+  "private": true,
+  "dependencies": {
+    "colorthief": "^2.3.0",
+    "enzyme": "^3.11.0",
+    "enzyme-adapter-react-16": "^1.15.6",
+    "jest-canvas-mock": "^2.3.1",
+    "lottie-react": "^2.4.0",
+    "react": "^16.10.2",
+    "react-dom": "^16.10.2",
+    "react-easy-emoji": "^1.8.1",
+    "react-headroom": "^3.0.0",
+    "react-reveal": "^1.2.2",
+    "react-scripts": "^5.0.1",
+    "react-test-renderer": "^16.10.2",
+    "react-twitter-embed": "3.0.3",
+    "sass": "^1.32.8"
   },
   "scripts": {
-    "uglify": "uglifyjs assets/js/vendor/jquery/jquery-1.12.4.min.js assets/js/plugins/jquery.fitvids.js assets/js/plugins/jquery.greedy-navigation.js assets/js/plugins/jquery.magnific-popup.js assets/js/plugins/jquery.smooth-scroll.min.js assets/js/plugins/stickyfill.min.js assets/js/_main.js -c -m -o assets/js/main.min.js",
-    "watch:js": "onchange \"assets/js/**/*.js\" -e \"assets/js/main.min.js\" -- npm run build:js",
-    "build:js": "npm run uglify"
+    "predeploy": "npm run build",
+    "start": "node fetch.js && react-scripts start",
+    "build": "node fetch.js && react-scripts build",
+    "deploy": "gh-pages -d build",
+    "test": "react-scripts test",
+    "eject": "react-scripts eject",
+    "format": "prettier --write \"./**/*.{js,css,json,scss}\"",
+    "check-format": "prettier -c \"./**/*.{js,css,json,scss}\""
+  },
+  "eslintConfig": {
+    "extends": "react-app"
+  },
+  "browserslist": {
+    "production": [
+      ">0.3%",
+      "not ie 11",
+      "not dead",
+      "not op_mini all"
+    ],
+    "development": [
+      ">0.3%",
+      "not ie 11",
+      "not dead",
+      "not op_mini all",
+      "last 1 chrome version",
+      "last 1 firefox version",
+      "last 1 safari version"
+    ]
+  },
+  "devDependencies": {
+    "@babel/plugin-proposal-private-property-in-object": "^7.21.11",
+    "dotenv": "^8.2.0",
+    "gh-pages": "^6.3.0",
+    "prettier": "^2.3.1"
   }
 }
