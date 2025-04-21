@@ -1,4 +1,4 @@
-import React, {useContext} from "react";
+import React, {useContext, useState, useEffect} from "react";
 import "./Achievement.scss";
 import AchievementCard from "../../components/achievementCard/AchievementCard";
 import PublicationCard from "../../components/publicationCard/PublicationCard";
@@ -8,6 +8,24 @@ import StyleContext from "../../contexts/StyleContext";
 
 export default function Achievement() {
   const {isDark} = useContext(StyleContext);
+  const [currentSlide, setCurrentSlide] = useState(0);
+  const achievements = achievementSection.achievementsCards;
+  const visibleCount = 3;
+  const slidesCount = achievements.length > visibleCount ? achievements.length - visibleCount + 1 : 1;
+
+  useEffect(() => {
+    const interval = setInterval(() => {
+      setCurrentSlide(prev => (prev + 1) % slidesCount);
+    }, 5000);
+    return () => clearInterval(interval);
+  }, [slidesCount]);
+
+  const goNext = () => {
+    setCurrentSlide(prev => (prev + 1) % slidesCount);
+  };
+  const goPrev = () => {
+    setCurrentSlide(prev => (prev - 1 + slidesCount) % slidesCount);
+  };
   
   if (!achievementSection.display) {
     return null;
@@ -38,22 +56,30 @@ export default function Achievement() {
               {achievementSection.subtitle}
             </p>
           </div>
-          <div className="achievement-cards-div">
-            {achievementSection.achievementsCards.map((card, i) => {
-              return (
-                <AchievementCard
-                  key={i}
-                  isDark={isDark}
-                  cardInfo={{
-                    title: card.title,
-                    description: card.subtitle,
-                    image: card.image,
-                    imageAlt: card.imageAlt,
-                    footer: card.footerLink
-                  }}
-                />
-              );
-            })}
+          <div className="carousel-window">
+            <div
+              className="carousel-track"
+              style={{ transform: `translateX(-${currentSlide * (100 / visibleCount)}%)` }}
+            >
+              {achievements.map((card, i) => (
+                <div className="carousel-card" key={i}>
+                  <AchievementCard
+                    isDark={isDark}
+                    cardInfo={{
+                      title: card.title,
+                      description: card.subtitle,
+                      image: card.image,
+                      imageAlt: card.imageAlt,
+                      footer: card.footerLink
+                    }}
+                  />
+                </div>
+              ))}
+            </div>
+          </div>
+          <div className={isDark ? "dark-mode carousel-controls" : "carousel-controls"}>
+            <button onClick={goPrev} className="carousel-button">{"<"}</button>
+            <button onClick={goNext} className="carousel-button">{">"}</button>
           </div>
         </div>
       </div>
