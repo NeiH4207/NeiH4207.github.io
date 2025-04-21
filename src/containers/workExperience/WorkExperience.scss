@@ -1,8 +1,4 @@
-.experience-cards-div {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(290px, 1fr));
-  gap: 1rem 1rem;
-}
+@import "../../_globalColor";
 
 .experience-heading {
   font-size: 56px;
@@ -34,4 +30,42 @@
     font-size: 30px;
     text-align: center;
   }
+}
+
+/* Timeline Chart styles */
+.experience-timeline {
+  position: relative;
+  padding-left: 2rem;
+}
+
+.experience-timeline::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 1rem;
+  bottom: 0;
+  width: 2px;
+  background: $lightBorder1;
+}
+
+.timeline-item {
+  position: relative;
+  margin-bottom: 2rem;
+}
+
+.timeline-item::before {
+  content: "";
+  position: absolute;
+  top: 50%;
+  left: 1rem;
+  transform: translate(-50%, -50%);
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: $appLink;
+}
+
+.timeline-item .experience-card,
+.timeline-item .experience-card-dark {
+  margin-left: 2rem;
 }

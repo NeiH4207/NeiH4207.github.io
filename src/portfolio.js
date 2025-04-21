@@ -432,7 +432,7 @@ const achievementSection = {
       footerLink: [
         {
           name: "View Publication",
-          url: "https://ieeexplore.ieee.org/document/10174621"
+          url: "https://onlinelibrary.wiley.com/doi/10.1111/imj.18_16230"
         } // Note: Link seems incorrect in CV, using placeholder
       ]
     },

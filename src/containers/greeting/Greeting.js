@@ -42,7 +42,7 @@ export default function Greeting() {
                 <Button text="Contact me" href="#contact" />
 
                 {/* Resume Link/Button Logic */}
-                <Button text="View Resume" href={greeting.resumeLink} /> 
+                {/* <Button text="View Resume" href={greeting.resumeLink} />  */}
               </div>
             </div>
           </div>

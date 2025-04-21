@@ -132,3 +132,14 @@
     margin: auto;
   }
 }
+
+// Indent education card for timeline layout
+.timeline-item .education-card {
+  margin-left: 2rem;
+}
+
+@media (max-width: 768px) {
+  .timeline-item .education-card {
+    margin-left: 0;
+  }
+}

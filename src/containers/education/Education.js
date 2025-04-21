@@ -8,9 +8,11 @@ export default function Education() {
     return (
       <div className="education-section" id="education">
         <h1 className="education-heading">Education</h1>
-        <div className="education-card-container">
+        <div className="education-timeline">
           {educationInfo.schools.map((school, index) => (
-            <EducationCard key={index} school={school} />
+            <div key={index} className="timeline-item">
+              <EducationCard school={school} />
+            </div>
           ))}
         </div>
       </div>
