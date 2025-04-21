@@ -1,7 +1,7 @@
 {
   "files": {
-    "main.css": "/static/css/main.ced7e4d8.css",
-    "main.js": "/static/js/main.4e93655e.js",
+    "main.css": "/static/css/main.b0f517c1.css",
+    "main.js": "/static/js/main.c1e68ade.js",
     "static/css/64.bba8fa55.chunk.css": "/static/css/64.bba8fa55.chunk.css",
     "static/js/64.56dc6704.chunk.js": "/static/js/64.56dc6704.chunk.js",
     "static/css/769.b3cbb36b.chunk.css": "/static/css/769.b3cbb36b.chunk.css",
@@ -11,7 +11,6 @@
     "static/media/Montserrat-Regular.ttf": "/static/media/Montserrat-Regular.3cd786652b8a2e9d41f2.ttf",
     "static/media/mso_logo.png": "/static/media/mso_logo.be20c41210fc3e40ee4c.png",
     "static/media/Agustina.woff": "/static/media/Agustina.eb0c59dda4cc308cba96.woff",
-    "static/media/springer_logo.png": "/static/media/springer_logo.e6f3bc9a3479256df4c4.png",
     "static/media/genestory_logo.png": "/static/media/genestory_logo.45ce1983d8b987986691.png",
     "static/media/logo_trustingsocial.png": "/static/media/logo_trustingsocial.2e537c320d46ccac1d16.png",
     "static/media/manOnTable.svg": "/static/media/manOnTable.8f117eb207e57ed8f89d67d595aceb45.svg",
@@ -19,18 +18,19 @@
     "static/media/vbdi_logo.png": "/static/media/vbdi_logo.886bbfbab83713892b2c.png",
     "static/media/developerActivity.svg": "/static/media/developerActivity.2c0445cae86f4243433a2f5a22b2c031.svg",
     "static/media/icpc_logo.png": "/static/media/icpc_logo.50f3897c0ff034969033.png",
+    "static/media/springer_logo.png": "/static/media/springer_logo.c90d9a5058907c667760.png",
     "static/media/github_logo.png": "/static/media/github_logo.50dd786674f991402395.png",
     "index.html": "/index.html",
     "static/media/talksCardBack.svg": "/static/media/talksCardBack.73ed1545d58273ba64b0.svg",
-    "main.ced7e4d8.css.map": "/static/css/main.ced7e4d8.css.map",
-    "main.4e93655e.js.map": "/static/js/main.4e93655e.js.map",
+    "main.b0f517c1.css.map": "/static/css/main.b0f517c1.css.map",
+    "main.c1e68ade.js.map": "/static/js/main.c1e68ade.js.map",
     "64.bba8fa55.chunk.css.map": "/static/css/64.bba8fa55.chunk.css.map",
     "64.56dc6704.chunk.js.map": "/static/js/64.56dc6704.chunk.js.map",
     "769.b3cbb36b.chunk.css.map": "/static/css/769.b3cbb36b.chunk.css.map",
     "769.09ea214d.chunk.js.map": "/static/js/769.09ea214d.chunk.js.map"
   },
   "entrypoints": [
-    "static/css/main.ced7e4d8.css",
-    "static/js/main.4e93655e.js"
+    "static/css/main.b0f517c1.css",
+    "static/js/main.c1e68ade.js"
   ]
 }
