@@ -6,7 +6,6 @@
   box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
   border-radius: 10px;
   border: 1px solid $lightBorder1;
-  margin-bottom: 1.5rem;
   transition: box-shadow 0.3s ease;
   overflow: hidden; // Prevent content overflow before body animation
   cursor: pointer;
@@ -18,7 +17,6 @@
   box-shadow: $lightBoxShadowDark 0px 10px 30px -15px; // Re-evaluate shadow for dark mode?
   border-radius: 10px;
   border: 1px solid $lightBorder1; // Re-evaluate border for dark mode?
-  margin-bottom: 1.5rem;
   transition: box-shadow 0.3s ease;
   cursor: pointer;
   overflow: hidden; // Ensure consistency
