@@ -1,145 +1,220 @@
 @import "../../_globalColor";
 
 .education-card {
+  position: relative;
+  background-color: $lightBackground2;
+  box-shadow: $lightBoxShadowDark 0px 10px 30px -15px;
+  border-radius: 10px;
+  border: 1px solid $lightBorder1;
+  margin-bottom: 1.5rem;
+  transition: box-shadow 0.3s ease;
+  overflow: hidden; // Prevent content overflow before body animation
+  cursor: pointer;
+}
+
+.education-card-dark {
+  position: relative;
+  background-color: $darkBackground;
+  box-shadow: $lightBoxShadowDark 0px 10px 30px -15px; // Re-evaluate shadow for dark mode?
+  border-radius: 10px;
+  border: 1px solid $lightBorder1; // Re-evaluate border for dark mode?
+  margin-bottom: 1.5rem;
+  transition: box-shadow 0.3s ease;
+  cursor: pointer;
+  overflow: hidden; // Ensure consistency
+}
+
+.education-card:hover {
+  box-shadow: $lightBoxShadowDark 0px 20px 40px -10px;
+}
+// Dark mode hover can have a different effect if desired
+.education-card-dark:hover {
+  box-shadow: $lightBoxShadowDark 0px 20px 40px -10px; // Example, adjust as needed
+}
+
+/* Accordion-style Education Card Header and Body */
+.education-header {
   display: flex;
-  flex-direction: row;
+  align-items: center;
+  justify-content: space-between;
+  padding: 1rem 1.5rem;
+  background: $lightBackground2;
+  border-radius: 10px 10px 0 0; // Only top corners rounded when collapsed
+  border-bottom: 1px solid $lightBorder1;
+  cursor: pointer;
+  transition: background 0.3s ease;
 }
 
-.education-card:hover + .education-card-border {
-  border-color: $educationCardBorder;
-  width: 100%;
-  -webkit-transition: width 0.6s ease-in-out;
-  -moz-transition: width 0.6s ease-in-out;
-  -o-transition: width 0.6s ease-in-out;
-  transition: width 0.6s ease-in-out;
+.education-card-dark .education-header {
+  background: darken($darkBackground, 3%);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.1); // Dark mode border
 }
 
-.education-card-border {
-  height: 30px;
-  width: 80%;
-  border-top: 2px solid $lightBorder1;
-  margin-bottom: 20px;
-  -webkit-transition: width 0.6s ease-in-out;
-  -moz-transition: width 0.6s ease-in-out;
-  -o-transition: width 0.6s ease-in-out;
-  transition: width 0.6s ease-in-out;
-}
-
-.education-head {
-  display: flex;
-  flex-direction: row;
-}
-
-.education-text-school {
-  margin: 0;
-  font-size: 28px;
-  font-weight: 700;
-  text-overflow: ellipsis;
-  overflow: hidden;
-  white-space: nowrap;
-  height: 27px;
-}
-
-.education-roundedimg {
+.education-logo {
+  width: 3rem; // Smaller logo
+  height: 3rem;
   object-fit: cover;
-  margin-right: 2rem;
-  width: 6rem;
-  height: 6rem;
-  box-shadow: 0 0.5rem 1rem $lightBoxShadowDarker;
   border-radius: 50%;
+  margin-right: 1rem;
+  // Use box-shadow from old .education-roundedimg if desired
+  // box-shadow: 0 0.5rem 1rem $lightBoxShadowDarker;
 }
 
-.education-card-right {
-  max-width: 70%;
+.education-header-text {
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+  gap: 0.25rem; // Space between text lines
 }
 
-.education-text-subHeader {
-  color: $textColor;
+.education-header-text h5, // School
+.education-header-text h6, // Degree/SubHeader
+.education-header-text span { // Duration
+  margin: 0;
+}
+
+// Mapping old classes to new structure
+.education-text-school { // Replaces .experience-company equivalent
+  margin: 0;
+  font-size: 1.25rem; // Adjust size as needed
   font-weight: 700;
-  font-size: 19px;
-  margin: 0px;
-  padding-top: 0.8rem;
-  line-height: normal;
+  // Text overflow properties from old style if needed
+  // text-overflow: ellipsis;
+  // overflow: hidden;
+  // white-space: nowrap;
 }
 
-.education-text-duration {
+.education-text-subHeader { // Replaces .experience-role equivalent
+  margin: 0;
+  font-size: 1rem; // Adjust size as needed
+  font-weight: 500;
+  color: $subTitle; // Use consistent subtitle color
+}
+
+.education-text-duration { // Replaces .experience-date equivalent
+  font-size: 0.875rem; // Adjust size as needed
   color: $titleColor;
-  font-size: 19px;
-  margin: 0px;
-  padding-top: 0.5rem;
+  margin-top: 0.25rem; // Add a bit of space above
 }
 
+.education-toggle-arrow {
+  font-size: 1.5rem;
+  color: gray; // Adjust color as needed
+  transition: color 0.3s ease, transform 0.3s ease; // Add transform transition
+}
+
+.education-toggle-arrow:hover {
+  color: darken(gray, 10%); // Example hover effect
+}
+
+.education-body {
+  padding: 0 1.5rem 1rem 1.5rem; // Padding only when expanded
+  background: $lightBackground2;
+  border-radius: 0 0 10px 10px; // Bottom corners rounded only when expanded
+  animation: fadeInAccordion 0.3s ease-out;
+}
+
+.education-card-dark .education-body {
+  background: darken($darkBackground, 5%); // Dark mode body background
+}
+
+// Map old description/bullets classes
 .education-text-desc {
-  margin-top: 0.5rem;
-  margin-bottom: 0.5rem;
+  margin: 0.5rem 0 0.5rem 0; // Keep existing margins or adjust
+  // Ensure text color works in both light/dark modes or use variables
+}
+
+.education-text-bullets {
+  padding-left: 1.5rem; // Standard padding for lists
+  margin: 0; // Reset margin if needed
 }
 
 .education-text-bullets > ul {
-  margin-top: 0.5rem;
+   margin-top: 0; // Remove default margin from ul
 }
 
-/* Media Query */
+.education-text-bullets li { // Style list items if needed
+  list-style-type: disc;
+  margin-bottom: 0.25rem;
+  // Ensure text color works in both light/dark modes
+}
 
-@media (max-width: 1380px) {
-  .education-card {
-    flex-direction: column;
-    padding-bottom: 10px;
+
+/* Smooth fade-in for body */
+@keyframes fadeInAccordion {
+  from { opacity: 0; transform: translateY(-10px); }
+  to { opacity: 1; transform: translateY(0); }
+}
+
+/* Highlight header on card hover */
+.education-card:hover .education-header {
+  background: lighten($lightBackground2, 5%); // Lighter background on hover
+}
+.education-card-dark:hover .education-header {
+  background: lighten($darkBackground, 5%); // Adjust dark mode hover
+}
+
+
+/* Stronger shadow when expanded */
+.education-card.expanded,
+.education-card-dark.expanded {
+  box-shadow: $lightBoxShadowDark 0px 24px 50px -15px; // Enhanced shadow when open
+  // Ensure overflow is visible when expanded if needed, though animation handles content visibility
+  // overflow: visible;
+}
+
+/* Refined Media Queries for Accordion Style */
+@media (max-width: 768px) {
+  .education-header {
+    padding: 0.75rem 1rem; // Slightly smaller padding on mobile
   }
-  .education-card-right {
-    max-width: 90%;
-  }
-  .education-card-border {
-    width: 90%;
-  }
-  .education-text-subHeader {
-    padding-top: 0.5rem;
-    font-size: 16px;
+  .education-logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 0.75rem;
   }
   .education-text-school {
-    font-size: 20px;
-    height: 23px;
+    font-size: 1.1rem;
+  }
+  .education-text-subHeader {
+    font-size: 0.9rem;
   }
   .education-text-duration {
-    font-size: 16px;
+    font-size: 0.8rem;
   }
-  .education-roundedimg {
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 0.5rem;
-    margin-right: 0px;
+  .education-toggle-arrow {
+    font-size: 1.25rem;
   }
-}
-
-@media (max-width: 768px) {
-  .education-card {
-    text-align: center;
+  .education-body {
+    padding: 0 1rem 0.75rem 1rem; // Adjust body padding
   }
-  .education-card-right {
-    max-width: 100%;
-  }
-  .education-card-border {
-    width: 100%;
-  }
-  .education-roundedimg {
-    margin-top: 10px;
-    width: 4rem;
-    height: 4rem;
-    margin-bottom: 1rem;
-    margin-right: 0;
-  }
-  .education-text-bullets > ul {
-    max-width: 80%;
-    margin: auto;
+  .education-text-bullets {
+     padding-left: 1rem; // Less indent for bullets
   }
 }
 
-// Indent education card for timeline layout
-.timeline-item .education-card {
-  margin-left: 2rem;
-}
+// Remove old timeline indent - this should be handled in Education.scss
+// .timeline-item .education-card {
+//   margin-left: 2rem;
+// }
+//
+// @media (max-width: 768px) {
+//   .timeline-item .education-card {
+//     margin-left: 0;
+//   }
+// }
 
-@media (max-width: 768px) {
-  .timeline-item .education-card {
-    margin-left: 0;
-  }
+// Fix specificity for dark mode text if needed
+.education-card-dark .education-text-school,
+.education-card-dark .education-text-subHeader,
+.education-card-dark .education-text-duration,
+.education-card-dark .education-text-desc,
+.education-card-dark .education-text-bullets li {
+  color: $textColorDark;
+}
+.education-card-dark .education-text-subHeader {
+  color: $textColorDark; // FALLBACK
+}
+.education-card-dark .education-text-duration {
+  color: $textColorDark; // FALLBACK
 }

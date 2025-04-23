@@ -1,72 +1,83 @@
-import React, {createRef, useContext} from "react";
-import {Fade, Slide} from "react-reveal";
+import React, { useState, useContext } from "react";
 import "./EducationCard.scss";
 import StyleContext from "../../contexts/StyleContext";
 
-export default function EducationCard({school}) {
-  const imgRef = createRef();
+export default function EducationCard({ school }) {
+  // State to manage accordion expansion
+  const [isExpanded, setIsExpanded] = useState(false);
+  const { isDark } = useContext(StyleContext);
 
-  const GetDescBullets = ({descBullets}) => {
+  // Function to toggle expansion
+  const toggleExpand = () => setIsExpanded(!isExpanded);
+
+  const GetDescBullets = ({ descBullets }) => {
     return descBullets
       ? descBullets.map((item, i) => (
-          <li key={i} className="subTitle">
+          // Apply dark mode to list items if needed
+          <li key={i} className={isDark ? "dark-mode" : ""}>
             {item}
           </li>
         ))
       : null;
   };
-  const {isDark} = useContext(StyleContext);
 
   if (!school.logo)
-    console.error(`Image of ${school.name} is missing in education section`);
-  return (
-    <div>
-      <Fade left duration={1000}>
-        <div className="education-card">
-          {school.logo && (
-            <div className="education-card-left">
-              <img
-                crossOrigin={"anonymous"}
-                ref={imgRef}
-                className="education-roundedimg"
-                src={school.logo}
-                alt={school.schoolName}
-              />
-            </div>
-          )}
-          <div className="education-card-right">
-            <h5 className="education-text-school">{school.schoolName}</h5>
+    console.error(`Image of ${school.schoolName} is missing in education section`);
 
-            <div className="education-text-details">
-              <h5
-                className={
-                  isDark
-                    ? "dark-mode education-text-subHeader"
-                    : "education-text-subHeader"
-                }
-              >
-                {school.subHeader}
-              </h5>
-              <p
-                className={`${
-                  isDark ? "dark-mode" : ""
-                } education-text-duration`}
-              >
-                {school.duration}
-              </p>
-              <p className="education-text-desc">{school.desc}</p>
-              <div className="education-text-bullets">
-                <ul>
-                  <GetDescBullets descBullets={school.descBullets} />
-                </ul>
-              </div>
-            </div>
+  // Main card container with dynamic classes for dark mode and expansion state
+  return (
+    <div
+      className={`education-card ${isDark ? "education-card-dark" : ""} ${
+        isExpanded ? "expanded" : ""
+      }`}
+    >
+      {/* Header section - clickable to toggle */}
+      <div className="education-header" onClick={toggleExpand}>
+        {school.logo && (
+          <img
+            crossOrigin={"anonymous"}
+            className="education-logo"
+            src={school.logo}
+            alt={school.schoolName}
+          />
+        )}
+        <div className="education-header-text">
+          {/* School Name */}
+          <h5 className={`education-text-school ${isDark ? "dark-mode" : ""}`}>
+            {school.schoolName}
+          </h5>
+          {/* Sub Header / Degree */}
+          <h6
+            className={`education-text-subHeader ${isDark ? "dark-mode" : ""}`}
+          >
+            {school.subHeader}
+          </h6>
+          {/* Duration */}
+          <span
+            className={`education-text-duration ${isDark ? "dark-mode" : ""}`}
+          >
+            {school.duration}
+          </span>
+        </div>
+        {/* Toggle Arrow Indicator */}
+        <span className="education-toggle-arrow">
+          {isExpanded ? "▼" : "▶"}
+        </span>
+      </div>
+
+      {/* Body section - conditionally rendered */}
+      {isExpanded && (
+        <div className="education-body">
+          <p className={`education-text-desc ${isDark ? "dark-mode" : ""}`}>
+            {school.desc}
+          </p>
+          <div className="education-text-bullets">
+            <ul>
+              <GetDescBullets descBullets={school.descBullets} />
+            </ul>
           </div>
         </div>
-      </Fade>
-      <Slide left duration={2000}>
-        <div className="education-card-border"></div>
-      </Slide>
+      )}
     </div>
   );
 }

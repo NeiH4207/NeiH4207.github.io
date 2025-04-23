@@ -1,28 +1,41 @@
+@import "../../_globalColor";
+
 .education-heading {
   font-size: 56px;
   font-weight: 400;
 }
 
-.education-section {
+.education-container {
   display: flex;
-  flex-direction: column;
   width: 90%;
-  padding: 20px 0px;
+  padding: 20px 10px;
   margin: 0px auto;
   margin-top: 2rem;
 }
 
-.education-section > * {
+.education-container > * {
   flex: 1;
-  margin-bottom: 30px;
 }
 
-@import "../../_globalColor";
-/* Timeline Chart styles for Education section */
+/* Media Query */
+
+@media (max-width: 1380px) {
+  .education-heading {
+    font-size: 40px;
+  }
+}
+
+@media (max-width: 768px) {
+  .education-heading {
+    font-size: 30px;
+    text-align: center;
+  }
+}
+
+/* Timeline Chart styles */
 .education-timeline {
   position: relative;
   padding-left: 2rem;
-  padding-top: 20px;
 }
 
 .education-timeline::before {
@@ -52,28 +65,26 @@
   background: $appLink;
 }
 
-@media (max-width: 1380px) {
-  .education-timeline {
-    padding-top: 0px;
-  }
-  .education-heading {
-    font-size: 40px;
-  }
-  .education-text-subtitle {
-    font-size: 18px;
-    text-align: center;
+.timeline-item {
+  $dot-colors: #4CAF50, #2196F3, #FF9800, #E91E63, #9C27B0, #009688;
+
+  @for $i from 1 through length($dot-colors) {
+    &:nth-child(#{length($dot-colors)}n + #{$i})::before {
+      background: nth($dot-colors, $i);
+    }
   }
 }
 
-@media (max-width: 768px) {
-  .education-timeline {
-    padding-top: 0px;
-  }
-  .education-heading {
-    font-size: 30px;
-    text-align: center;
-  }
-  .education-text-subtitle {
-    font-size: 16px;
-  }
+.timeline-item .education-card,
+.timeline-item .education-card-dark {
+  margin-left: 2rem;
+}
+
+.education-section {
+  display: flex;
+  flex-direction: column;
+  width: 90%;
+  padding: 20px 10px;
+  margin: 0px auto;
+  margin-top: 2rem;
 }
