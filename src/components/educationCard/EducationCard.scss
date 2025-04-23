@@ -104,7 +104,13 @@
 .education-toggle-arrow {
   font-size: 1.5rem;
   color: gray; // Adjust color as needed
-  transition: color 0.3s ease, transform 0.3s ease; // Add transform transition
+  transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block; // Needed for transform
+}
+
+// Rotate arrow on expand
+.education-card.expanded .education-toggle-arrow {
+  transform: rotate(90deg);
 }
 
 .education-toggle-arrow:hover {

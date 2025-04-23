@@ -4,14 +4,30 @@ import "./ExperienceCard.scss";
 export default function ExperienceCard({cardInfo, isDark}) {
   const [expanded, setExpanded] = useState(false);
 
+  // Function to toggle expansion
+  const toggleExpand = () => setExpanded(!expanded);
+
+  // Handle key events for accessibility
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      toggleExpand();
+    }
+  };
+
   return (
     <div
       className={`${isDark ? "experience-card-dark" : "experience-card"} ${
         expanded ? "expanded" : ""
       }`}
-      onClick={() => setExpanded(!expanded)}
     >
-      <div className="experience-header">
+      <div
+        className="experience-header"
+        role="button"
+        tabIndex="0"
+        aria-expanded={expanded}
+        onClick={toggleExpand}
+        onKeyDown={handleKeyDown}
+      >
         <img
           className="experience-logo"
           src={cardInfo.companylogo}
@@ -22,7 +38,8 @@ export default function ExperienceCard({cardInfo, isDark}) {
           <h6 className="experience-company">{cardInfo.company}</h6>
           <span className="experience-date">{cardInfo.date}</span>
         </div>
-        <span className="experience-toggle-arrow">{expanded ? "▼" : "▶"}</span>
+        {/* Toggle Arrow Indicator, always right arrow rotated via CSS */}
+        <span className="experience-toggle-arrow">▶</span>
       </div>
       {expanded && (
         <div className="experience-body">

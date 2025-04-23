@@ -10,6 +10,13 @@ export default function EducationCard({school}) {
   // Function to toggle expansion
   const toggleExpand = () => setIsExpanded(!isExpanded);
 
+  // Handle key events for accessibility
+  const handleKeyDown = (e) => {
+    if (e.key === "Enter" || e.key === " ") {
+      toggleExpand();
+    }
+  };
+
   const GetDescBullets = ({descBullets}) => {
     return descBullets
       ? descBullets.map((item, i) => <li key={i}>{item}</li>)
@@ -29,7 +36,14 @@ export default function EducationCard({school}) {
       }`}
     >
       {/* Header section - clickable to toggle */}
-      <div className="education-header" onClick={toggleExpand}>
+      <div
+        className="education-header"
+        role="button"
+        tabIndex="0"
+        aria-expanded={isExpanded}
+        onClick={toggleExpand}
+        onKeyDown={handleKeyDown}
+      >
         {school.logo && (
           <img
             crossOrigin={"anonymous"}
@@ -46,8 +60,8 @@ export default function EducationCard({school}) {
           {/* Duration */}
           <span className="education-text-duration">{school.duration}</span>
         </div>
-        {/* Toggle Arrow Indicator */}
-        <span className="education-toggle-arrow">{isExpanded ? "▼" : "▶"}</span>
+        {/* Toggle Arrow Indicator, always right arrow rotated via CSS */}
+        <span className="education-toggle-arrow">▶</span>
       </div>
 
       {/* Body section - conditionally rendered */}

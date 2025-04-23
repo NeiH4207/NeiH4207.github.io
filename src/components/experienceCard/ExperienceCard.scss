@@ -227,6 +227,11 @@
   font-size: 1.5rem;
   color: gray;
   transition: color 0.3s ease, transform 0.3s ease;
+  display: inline-block;
+}
+
+.experience-card.expanded .experience-toggle-arrow {
+  transform: rotate(90deg);
 }
 
 .experience-toggle-arrow:hover {
@@ -275,9 +280,6 @@
 .experience-toggle-arrow {
   transition: transform 0.3s ease;
 }
-// .expanded .experience-toggle-arrow {
-//   transform: rotate(90deg);
-// }
 
 /* Smooth fade-in for body */
 @keyframes fadeInAccordion {
