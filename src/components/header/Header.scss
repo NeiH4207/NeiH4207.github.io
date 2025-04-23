@@ -2,7 +2,22 @@
 
 /*React-headroom*/
 .headroom-wrapper {
+  position: sticky;
+  top: 0;
+  z-index: 1000;
   max-height: 100px;
+  transition: transform 0.3s ease, backdrop-filter 0.3s ease, background-color 0.3s ease, box-shadow 0.3s ease;
+  backdrop-filter: blur(0);
+}
+
+.headroom-wrapper.headroom--pinned {
+  transform: translateY(0);
+  backdrop-filter: blur(6px);
+  box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+}
+
+.headroom-wrapper.headroom--unpinned {
+  transform: translateY(-100%);
 }
 
 /* header */
@@ -43,11 +58,23 @@
   padding: 15px 20px;
   color: $textColor;
   text-decoration: none;
+  position: relative;
+  overflow: hidden;
 }
 
-.header li a:hover,
-.header .menu-btn:hover {
-  background-color: $headerHoverBG;
+.header li a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 0;
+  height: 2px;
+  background: $buttonColor;
+  transition: width 0.25s ease;
+}
+
+.header li a:hover::after {
+  width: 100%;
 }
 
 .header .logo {
@@ -58,6 +85,7 @@
   text-decoration: none;
   margin-top: 10px;
   line-height: normal;
+  animation: fadeInScale 0.5s ease-out forwards;
 }
 
 .header .logo-name {
@@ -92,7 +120,7 @@
   display: block;
   height: 2px;
   position: relative;
-  transition: background 0.2s ease-out;
+  transition: background 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   width: 18px;
 }
 
@@ -107,7 +135,7 @@
   display: block;
   height: 100%;
   position: absolute;
-  transition: all 0.2s ease-out;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
 }
 
@@ -118,7 +146,7 @@
   display: block;
   height: 100%;
   position: absolute;
-  transition: all 0.2s ease-out;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   width: 100%;
 }
 
@@ -214,4 +242,24 @@
   .header .full-logo-name {
     display: none;
   }
+}
+
+/* Logo mount fade & scale animation */
+@keyframes fadeInScale {
+  from { opacity: 0; transform: translateY(-5px) scale(0.95); }
+  to   { opacity: 1; transform: translateY(0) scale(1); }
+}
+
+/* Dark-mode header scroll & hover tweaks */
+.dark-mode .headroom-wrapper.headroom--pinned .header {
+  background-color: rgba($darkBackground, 0.95) !important;
+}
+.dark-mode .headroom-wrapper.headroom--pinned {
+  box-shadow: 0 2px 8px rgba(255, 255, 255, 0.1) !important;
+}
+.dark-menu li a::after {
+  background: $buttonHover;
+}
+.dark-menu li a:hover {
+  background-color: transparent !important;
 }
