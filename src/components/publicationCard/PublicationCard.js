@@ -21,15 +21,23 @@ export default function PublicationCard({cardInfo, isDark}) {
             className="publication-image"
           />
         </div>
-        
+
         <div className="publication-detail-div">
-          <h3 className={isDark ? "dark-mode publication-title" : "publication-title"}>
+          <h3
+            className={
+              isDark ? "dark-mode publication-title" : "publication-title"
+            }
+          >
             {cardInfo.title}
           </h3>
-          <p className={isDark ? "dark-mode publication-subtitle" : "publication-subtitle"}>
+          <p
+            className={
+              isDark ? "dark-mode publication-subtitle" : "publication-subtitle"
+            }
+          >
             {cardInfo.description}
           </p>
-          
+
           <div className="publication-footer">
             {cardInfo.footer.map((v, i) => {
               return (

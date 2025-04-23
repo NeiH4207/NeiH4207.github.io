@@ -185,8 +185,7 @@ const educationInfo = {
     {
       schoolName: "Hanoi University of Science and Technology (HUST)",
       logo: require("./assets/images/hust_logo.png"), // <<< UPDATE LOGO PATH
-      subHeader:
-        "B.S. in Computer Engineering",
+      subHeader: "B.S. in Computer Engineering",
       duration: "Aug 2018 - Mar 2023",
       desc: "Research conducted at the Modeling, Simulation, and Optimization Laboratory.",
       descBullets: [
@@ -425,7 +424,8 @@ const achievementSection = {
       ]
     },
     {
-      title: "Machine Learning for Prediction of Severe Cutaneous Adverse Drug Reactions",
+      title:
+        "Machine Learning for Prediction of Severe Cutaneous Adverse Drug Reactions",
       subtitle: "Published in Internal Medicine Journal (Q2), 2023.",
       image: require("./assets/images/springer_logo.png"), // <<< UPDATE IMAGE PATH
       imageAlt: "Publication Icon",

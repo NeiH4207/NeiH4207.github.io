@@ -69,12 +69,14 @@
 
 .education-header-text h5, // School
 .education-header-text h6, // Degree/SubHeader
-.education-header-text span { // Duration
+.education-header-text span {
+  // Duration
   margin: 0;
 }
 
 // Mapping old classes to new structure
-.education-text-school { // Replaces .experience-company equivalent
+.education-text-school {
+  // Replaces .experience-company equivalent
   margin: 0;
   font-size: 1.25rem; // Adjust size as needed
   font-weight: 700;
@@ -84,14 +86,16 @@
   // white-space: nowrap;
 }
 
-.education-text-subHeader { // Replaces .experience-role equivalent
+.education-text-subHeader {
+  // Replaces .experience-role equivalent
   margin: 0;
   font-size: 1rem; // Adjust size as needed
   font-weight: 500;
   color: $subTitle; // Use consistent subtitle color
 }
 
-.education-text-duration { // Replaces .experience-date equivalent
+.education-text-duration {
+  // Replaces .experience-date equivalent
   font-size: 0.875rem; // Adjust size as needed
   color: $titleColor;
   margin-top: 0.25rem; // Add a bit of space above
@@ -130,20 +134,26 @@
 }
 
 .education-text-bullets > ul {
-   margin-top: 0; // Remove default margin from ul
+  margin-top: 0; // Remove default margin from ul
 }
 
-.education-text-bullets li { // Style list items if needed
+.education-text-bullets li {
+  // Style list items if needed
   list-style-type: disc;
   margin-bottom: 0.25rem;
   // Ensure text color works in both light/dark modes
 }
 
-
 /* Smooth fade-in for body */
 @keyframes fadeInAccordion {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Highlight header on card hover */
@@ -153,7 +163,6 @@
 .education-card-dark:hover .education-header {
   background: lighten($darkBackground, 5%); // Adjust dark mode hover
 }
-
 
 /* Stronger shadow when expanded */
 .education-card.expanded,
@@ -189,7 +198,7 @@
     padding: 0 1rem 0.75rem 1rem; // Adjust body padding
   }
   .education-text-bullets {
-     padding-left: 1rem; // Less indent for bullets
+    padding-left: 1rem; // Less indent for bullets
   }
 }
 
@@ -210,11 +219,5 @@
 .education-card-dark .education-text-duration,
 .education-card-dark .education-text-desc,
 .education-card-dark .education-text-bullets li {
-  color: $textColorDark;
-}
-.education-card-dark .education-text-subHeader {
-  color: $textColorDark; // FALLBACK
-}
-.education-card-dark .education-text-duration {
-  color: $textColorDark; // FALLBACK
+  color: $textColorDark !important; // Ensure dark mode text color overrides other rules
 }

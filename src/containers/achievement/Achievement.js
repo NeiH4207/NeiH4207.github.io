@@ -40,7 +40,10 @@ export default function Achievement() {
       const newVisibleCount = getVisibleCount();
       if (newVisibleCount !== visibleCount) {
         setVisibleCount(newVisibleCount);
-        const newSlidesCount = calculateSlidesCount(newVisibleCount, achievements.length);
+        const newSlidesCount = calculateSlidesCount(
+          newVisibleCount,
+          achievements.length
+        );
         setSlidesCount(newSlidesCount);
         // Reset slide to 0 if the count changes to avoid invalid index
         setCurrentSlide(0);
@@ -54,7 +57,6 @@ export default function Achievement() {
     return () => window.removeEventListener("resize", handleResize);
     // Re-run effect if achievements length changes (though unlikely for this data)
   }, [visibleCount, achievements.length]);
-
 
   // Auto-slide functionality
   useEffect(() => {
@@ -80,7 +82,7 @@ export default function Achievement() {
   if (!achievementSection.display) {
     return null;
   }
-  
+
   return (
     <Fade bottom duration={1000} distance="20px">
       {/* Awards Section */}
@@ -109,10 +111,16 @@ export default function Achievement() {
           <div className="carousel-window">
             <div
               className="carousel-track"
-              style={{ transform: `translateX(-${currentSlide * slidePercentage}%)` }}
+              style={{
+                transform: `translateX(-${currentSlide * slidePercentage}%)`
+              }}
             >
               {achievements.map((card, i) => (
-                <div className="carousel-card" key={i} style={{ flexBasis: `${slidePercentage}%` }}>
+                <div
+                  className="carousel-card"
+                  key={i}
+                  style={{flexBasis: `${slidePercentage}%`}}
+                >
                   {/* Note: CSS should ideally handle the flex-basis via media queries */}
                   {/* But setting it here ensures JS calculation aligns visually if CSS is slow/overridden */}
                   <AchievementCard
@@ -131,9 +139,17 @@ export default function Achievement() {
           </div>
           {/* Only show controls if there are multiple slides */}
           {slidesCount > 1 && (
-             <div className={isDark ? "dark-mode carousel-controls" : "carousel-controls"}>
-              <button onClick={goPrev} className="carousel-button">{"<"}</button>
-              <button onClick={goNext} className="carousel-button">{">"}</button>
+            <div
+              className={
+                isDark ? "dark-mode carousel-controls" : "carousel-controls"
+              }
+            >
+              <button onClick={goPrev} className="carousel-button">
+                {"<"}
+              </button>
+              <button onClick={goNext} className="carousel-button">
+                {">"}
+              </button>
             </div>
           )}
         </div>

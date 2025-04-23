@@ -21,9 +21,14 @@
   margin-bottom: 1.5rem;
   transition: box-shadow 0.3s ease;
   cursor: pointer;
+  overflow: hidden;
 }
 
 .experience-card:hover {
+  box-shadow: $lightBoxShadowDark 0px 20px 40px -10px;
+}
+
+.experience-card-dark:hover {
   box-shadow: $lightBoxShadowDark 0px 20px 40px -10px;
 }
 
@@ -107,9 +112,7 @@
   padding-top: 1.5rem;
   line-height: normal;
 }
-.dark-mode-text {
-  color: $textColorDark !important;
-}
+
 .experience-text-date {
   text-align: center;
   color: $textColor;
@@ -223,7 +226,7 @@
 .experience-toggle-arrow {
   font-size: 1.5rem;
   color: gray;
-  transition: color 0.3s ease;
+  transition: color 0.3s ease, transform 0.3s ease;
 }
 
 .experience-toggle-arrow:hover {
@@ -242,7 +245,7 @@
 }
 
 .experience-desc {
-  margin: 0.5 0 0.5rem 0;
+  margin: 0.5rem 0 0.5rem 0;
 }
 
 .experience-bullets {
@@ -250,7 +253,11 @@
   margin: 0;
 }
 
-.experience-bullet {
+.experience-bullets > ul {
+  margin-top: 0;
+}
+
+.experience-bullets li {
   list-style-type: disc;
   margin-bottom: 0.25rem;
 }
@@ -274,8 +281,14 @@
 
 /* Smooth fade-in for body */
 @keyframes fadeInAccordion {
-  from { opacity: 0; transform: translateY(-10px); }
-  to { opacity: 1; transform: translateY(0); }
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
 }
 
 /* Refine header text spacing */
@@ -290,11 +303,80 @@
 
 /* Highlight header on card hover */
 .experience-card:hover .experience-header {
-  background: lighten($lightBackground2, 8%);
+  background: lighten($lightBackground2, 5%);
+}
+
+.experience-card-dark:hover .experience-header {
+  background: lighten($darkBackground, 5%);
 }
 
 /* Stronger shadow when expanded */
 .experience-card.expanded,
 .experience-card-dark.expanded {
   box-shadow: $lightBoxShadowDark 0px 24px 50px -15px;
+}
+
+/* Add Media Queries consistent with EducationCard */
+@media (max-width: 768px) {
+  .experience-header {
+    padding: 0.75rem 1rem;
+  }
+  .experience-logo {
+    width: 2.5rem;
+    height: 2.5rem;
+    margin-right: 0.75rem;
+  }
+  .experience-role {
+    font-size: 1.1rem;
+  }
+  .experience-company {
+    font-size: 0.9rem;
+  }
+  .experience-date {
+    font-size: 0.8rem;
+  }
+  .experience-toggle-arrow {
+    font-size: 1.25rem;
+  }
+  .experience-body {
+    padding: 0 1rem 0.75rem 1rem;
+  }
+  .experience-bullets {
+    padding-left: 1rem;
+  }
+}
+
+/* Dark mode text colors using specificity (consistent with EducationCard) */
+.experience-card-dark .experience-role,
+.experience-card-dark .experience-company,
+.experience-card-dark .experience-date,
+.experience-card-dark .experience-desc,
+.experience-card-dark .experience-bullets li {
+  color: $textColorDark;
+}
+
+.experience-card-dark .experience-company {
+  color: $textColorDark;
+}
+
+.experience-card-dark .experience-date {
+  color: $textColorDark;
+}
+
+/* Ensure old banner elements do not interfere */
+.experience-banner,
+.experience-blurred_div,
+.experience-div-company,
+.experience-roundedimg,
+.experience-text-details {
+  display: none;
+}
+
+/* Make sure the new elements are displayed */
+.experience-header,
+.experience-body {
+  display: block;
+}
+.experience-header {
+  display: flex;
 }

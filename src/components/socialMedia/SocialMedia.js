@@ -1,8 +1,9 @@
 import React from "react";
 import "./SocialMedia.scss";
-import { socialMediaLinks } from "../../portfolio";
+import {socialMediaLinks} from "../../portfolio";
 
-export default function SocialMedia() { // Changed function name to follow standard React naming conventions
+export default function SocialMedia() {
+  // Changed function name to follow standard React naming conventions
   if (!socialMediaLinks.display) {
     return null;
   }
@@ -43,7 +44,6 @@ export default function SocialMedia() { // Changed function name to follow stand
           <span></span>
         </a>
       ) : null}
-
 
       {socialMediaLinks.gitlab ? (
         <a
@@ -128,7 +128,6 @@ export default function SocialMedia() { // Changed function name to follow stand
           <span></span>
         </a>
       ) : null}
-
     </div> // Moved the closing div tag here
   );
 }

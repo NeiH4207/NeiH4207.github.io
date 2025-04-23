@@ -10,15 +10,15 @@
   flex-direction: column;
   transition: all 0.3s ease;
   overflow: hidden;
-  
+
   &:hover {
     box-shadow: $lightBoxShadowDark 0px 20px 30px -10px;
     transform: translateY(-5px);
   }
-  
+
   &.dark-mode {
     background-color: $darkBackground;
-    
+
     &:hover {
       box-shadow: $achievementCertificateCardHoverDark 0px 20px 30px -10px;
     }
@@ -61,7 +61,7 @@
   font-weight: 700;
   margin-top: 0;
   margin-bottom: 0.5rem;
-  
+
   &.dark-mode {
     color: $textColorDark;
   }
@@ -72,7 +72,7 @@
   font-size: 1rem;
   line-height: 1.5;
   margin-bottom: 1rem;
-  
+
   &.dark-mode {
     color: $textColorDark;
   }
@@ -99,15 +99,15 @@
   padding: 0 0.75em;
   cursor: pointer;
   transition: 0.2s ease-in;
-  
+
   &:hover {
     background: $buttonHover;
   }
-  
+
   &.dark-mode {
     background: $buttonColor;
     color: $lightBackground3;
-    
+
     &:hover {
       background: $buttonHover;
     }
@@ -121,7 +121,7 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  
+
   .dark-mode & {
     background-color: rgba(255, 255, 255, 0.05);
     border-top: 1px solid rgba(255, 255, 255, 0.1);
@@ -133,27 +133,30 @@
   align-items: center;
 }
 
-.citation-count, .impact-factor {
+.citation-count,
+.impact-factor {
   display: flex;
   flex-direction: column;
   align-items: center;
   margin-right: 2rem;
 }
 
-.citation-number, .impact-number {
+.citation-number,
+.impact-number {
   font-size: 1.5rem;
   font-weight: 700;
   color: $titleColor;
-  
+
   .dark-mode & {
     color: $textColorDark;
   }
 }
 
-.citation-label, .impact-label {
+.citation-label,
+.impact-label {
   font-size: 0.75rem;
   color: $cardSubtitle;
-  
+
   .dark-mode & {
     color: rgba(255, 255, 255, 0.7);
   }
@@ -162,7 +165,7 @@
 .publication-date {
   font-size: 0.875rem;
   color: $cardSubtitle;
-  
+
   .dark-mode & {
     color: rgba(255, 255, 255, 0.7);
   }
@@ -173,18 +176,18 @@
   .publication-content {
     flex-direction: column;
   }
-  
+
   .publication-image-div {
     margin-right: 0;
     margin-bottom: 1.5rem;
     flex: 0 0 auto;
   }
-  
+
   .publication-progress {
     flex-direction: column;
     align-items: flex-start;
   }
-  
+
   .citation-info {
     margin-bottom: 1rem;
   }

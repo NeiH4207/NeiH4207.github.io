@@ -66,7 +66,7 @@
 }
 
 .timeline-item {
-  $dot-colors: #4CAF50, #2196F3, #FF9800, #E91E63, #9C27B0, #009688;
+  $dot-colors: #4caf50, #2196f3, #ff9800, #e91e63, #9c27b0, #009688;
 
   @for $i from 1 through length($dot-colors) {
     &:nth-child(#{length($dot-colors)}n + #{$i})::before {
