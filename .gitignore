@@ -8,7 +8,9 @@
 # testing
 /coverage
 /build
-
+/dist
+/.vite
+/CV
 
 # misc
 .DS_Store
